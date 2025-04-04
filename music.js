@@ -94,3 +94,13 @@ function formatTime(seconds) {
     const secs = Math.floor(seconds % 60);
     return `${minutes}:${secs.toString().padStart(2, '0')}`;
 }
+
+setInterval(()=>{
+    if (playing) {
+        document.getElementById('start').innerHTML ='||'
+        audio.play();
+    }
+    if(!playing){
+         document.getElementById('start').innerHTML = '	&#x27A4;'
+    }
+},1000)
