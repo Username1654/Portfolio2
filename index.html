@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #con{
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(30, 60, 90);
+            display: grid;
+            grid-template-rows: 1fr 5fr 1fr 1fr;
+        }
+        header {
+            grid-row: 1;
+            display: flex;
+            justify-content:space-around;
+            align-items:center;
+            width: 100vw;
+            height: 9vh;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgb(172, 170, 170);
+            box-shadow: 5px 3px 5px;
+        }
+        header h1{
+            overflow-anchor: 1px;
+        }
+        header p:hover{
+            box-shadow: 0 0 10px;
+        }
+        #bod{
+            margin-top: -28px;
+            grid-row: 2/5;
+          
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 3fr 1fr;
+            width: 100%;
+            height: 100%;
+            
+        }
+        #contact{
+            grid-row: 2;
+            grid-column: 4;
+            width: 60%;
+            height: 250px;
+            background-color: rgb(172, 170, 170);
+            margin-left: auto;
+            overflow: hidden;
+            padding-bottom: 5px;
+            line-height: 30px;
+        }
+        #contact button{
+            margin-left: 2%;
+            font-size: 1em;
+            list-style-type: none;
+            word-break: break-all;
+            background-color: rgba(89, 88, 88, 0.1);;
+        }
+        #music{
+            /* margin-bottom:4px; */
+            height: 30px;
+            grid-row: 6;
+            background-color: rgb(172, 170, 170);
+            width: 100vw;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        #back {
+            width: 50%;
+            border: 1px solid black;
+            height: 10px;
+            position: relative;
+            overflow: hidden;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        #length {
+            width: 0%;
+            height: 100%;
+            background-color: blue;
+            transition: width 0.1s linear;
+        }
+        #hamburger{
+            font-size: 4em;
+            transition: all 1.3s;
+            width: fit-content;
+            height: fit-content;
+            padding-right: 10px;
+            padding-left: 10px;
+            cursor:pointer;
+            display: none;
+        }
+        #hamburger:hover{
+            background-color: rgba(89, 88, 88, 0.1);;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        #music button{
+            width: 5%;
+            
+        }
+        #time, #end{
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+        #range{
+            width: 50%;
+        }
+        ul p{
+            text-decoration: underline;
+        }
+        #x{
+            font-size: 2em;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        #x:hover{
+            color: red;
+            background-color: rgba(89, 88, 88, 0.1);;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        nav{
+            background-color: rgb(172, 170, 170);
+            grid-column: 1;
+            grid-row: 1/7;
+            width: 100%;
+            height: 0%;
+            border-bottom-right-radius: 10px;
+            box-shadow: 3px 7px 5px;
+            transition: all 1s;
+            overflow: hidden;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            z-index: 999;
+            
+        }
+        nav ul {
+            font-size: 2.5em;
+            margin-left: 30%;
+            list-style-type:none;
+            line-height: 60px;
+        }
+        #home{
+            cursor:not-allowed;
+            transition: all 0.5s;
+           background-color: rgb(172, 170, 170);
+           width: fit-content;
+        }
+        nav a{
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: rgb(172, 170, 170);
+            transition: all 0.5s;
+        }
+      nav a:hover, #home:hover{
+            padding:10px;
+            background-color: rgba(89, 88, 88, 0.1);;
+        }
+        #clos{
+            background-color: rgb(147, 147, 147);
+            
+        }
+        #clos:focus{
+            background-color: rgb(117, 117, 117);
+        }
+        #headNav{
+            list-style-type: none;
+            font-size: 1.5em;
+            word-spacing: 1px;
+            transition: all 1s;
+        }
+        #headNav li{
+            display: inline;
+            word-spacing: 15px;
+            padding-left:3px;
+        }
+        #headNav a{
+            color: black;
+            cursor: pointer;
+            background-color: rgb(172, 170, 170);
+            transition: all 0.5s;
+            
+          
+        }
+        #headNav a:hover, #home:hover{
+            padding:10px;
+            background-color: rgba(89, 88, 88, 0.1);;
+        }
+        #headNav li{
+            text-decoration: underline;
+        }
+        #about{
+            background-color: rgb(172, 170, 170);
+            grid-row: 2/6;
+            grid-column: 1/3;
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            box-shadow: 0 0 10px;
+            padding: 5px;
+            overflow: scroll;
+        }
+        #about h2{
+            text-align: center;
+        }
+        #about ul{
+            list-style-type: georgian;
+        }
+        #about li{
+            color: black;
+            margin-left: 25px;
+            list-style-type:circle;
+        }
+        @media only screen and (max-width: 500px) {
+            *{
+                font-size: 1em;
+            }
+            #headNav{
+                display: none;
+            }
+            #hamburger{
+                display: block;
+                font-size: 2em;
+            }
+            #x{
+            font-size: 1.3em;
+            transition: all 0.5s;
+            cursor: pointer;
+        }
+        nav{
+            grid-column: 1;
+            width: 150px;
+        }
+        nav ul{
+            font-size: 1em;
+            padding:5px;
+            padding-right: 7px;
+        }
+        nav a:hover, #home:hover{
+            padding:5px;
+            padding-right: 7px;
+            background-color: rgba(89, 88, 88, 0.1);;
+        }
+        #contact{
+            grid-row: 2/5;
+            width: 100%;
+            height: fit-content;
+            min-width: 100px;
+            line-height: 30px;
+            font-size: 1em;
+            word-wrap:break-word;
+            overflow: scroll;
+            border: 2px solid black;
+        }
+        #contact button{
+            margin-left: 6%;
+            font-size: 0.8em;
+        }
+        #music button{
+            font-size: 1em;
+            height: fit-content;
+            width: fit-content;
+            margin-left: 5px;
+        }
+}
+    </style>
+</head>
+<body>
+    <div id="con">
+        <header>
+            <div id="hamburger">&equiv;</div>
+            <div id="headNav">
+                <li id="home">Home</li>
+                <li><a href="#" target="_blank">Projects</a></li>
+                <li><a href="https://drive.google.com/file/d/1igS3WOuWnLIC27gfd-xCkNunXaPk79Ir/view?usp=sharing" target="_blank">Resume</a></li>
+                </div>
+                
+            
+            <h1>Welcome to Zac's Portfolio Website</h1>
+            <div id="x">X</div>
+        </header>
+        <div id="bod">
+
+        
+        <nav id="nav">
+            <ul>
+                <li id="home">Home</li>
+                <li><a href="#" target="_blank">Projects</a></li>
+                <li><a href="https://drive.google.com/file/d/1igS3WOuWnLIC27gfd-xCkNunXaPk79Ir/view?usp=sharing" target="_blank">Resume</a></li>
+                
+                
+            </ul>
+        </nav>
+
+        <div id="about">
+            <h2>About me</h2>
+            <p>Hello! My  names Zachary M. Andrews, currently  i'm an <a href="https://miaprep.com/#/" target="_blank">highschool student</a> expected to graduate in 2026, I'm 17 years old, born and living in <a href="https://www.google.com/maps/place/Litchfield+Park,+AZ/@33.5100284,-112.3776018,30742m/data=!3m1!1e3!4m6!3m5!1s0x872b3a018eefc753:0xc81a3c695bbea9e7!8m2!3d33.4933743!4d-112.3579364!16s%2Fm%2F01z5b2l?entry=ttu&g_ep=EgoyMDI1MDQwMi4xIKXMDSoASAFQAw%3D%3D" target="_blank">Litchfield park AZ</a>.</p> <br> <hr> <br>
+            <p><span style="font-weight: bold;">Some Of My Hobbies:</span> Coding, walking dogs, reading, video games, and playing guitar.</p> <br> <hr> <br>
+            <p> <span style="font-weight: bold;">My Skills Include:</span>
+                <ul>
+                    <li>JavaScript</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                </ul> </p>
+                <p><span style="font-weight: bold;">Other Skills Include:</span> 
+                    <ul>
+                        <li>Problem-solving</li>
+                        <li>Creativity</li>
+                        <li>Digital literacy</li>
+                    </ul>
+                </p>
+                <br> <hr> <br>
+                <p><span style="font-weight: bold;">Job history:</span> Currently unemployed with no job history yet! <span style="font-weight: bold; text-decoration: underline;">Currently looking for jobs though</span></p>
+                <br>
+                <p><span style="font-weight: bold;">Phone:</span>602-774-6730</p>
+                <p><span style="font-weight: bold;">Gmail:</span>zacandrews1023@gmail.com</p>
+        </div>
+        <div id="contact">
+            <button id="clos">x</button>
+            <h2 style="text-align: center;">Contact me!</h2>
+            <ul>
+                <!-- <li><a href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJWHLzXsjLpCRzJcJFjmBLVfvqknVStgsQbgcQbNJzrlGWPpfNHDxrVDRQRQDhChxhFb" target="_blank">zacandrews1023@gmail.com</a></li>
+                <li><a href="https://www.instagram.com/nicknamednickname/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.tiktok.com/@nicknamed__?_t=ZT-8v9Ryfr3gvW&_r=1" target="_blank">TikTok</a></li>
+                <li><a href="https://github.com/" target="_blank">GitHub</a></li> -->
+                <button><a href="https://mail.google.com/mail/u/0/#inbox?compose=VpCqJWHLzXsjLpCRzJcJFjmBLVfvqknVStgsQbgcQbNJzrlGWPpfNHDxrVDRQRQDhChxhFb" target="_blank">zacandrews1023@gmail.com</a></button>
+                <button><a href="https://www.instagram.com/nicknamednickname/" target="_blank">Instagram</a></button>
+                <button><a href="https://www.tiktok.com/@nicknamed__?_t=ZT-8v9Ryfr3gvW&_r=1" target="_blank">TikTok</a></button>
+                <button><a href="https://github.com/" target="_blank">GitHub</a></button>
+                <li>Phone: 602-774-6730</li>
+                <p>By the way I may not respond!</p>
+            </ul>
+        </div>
+
+    </div>
+        <div id="music">
+            <button onclick="back()"> << </button>
+            <button onclick="pause()" id="start">||</button>
+            <button onclick="skip()"> >> </button>
+           
+            <button onclick="redo()">↻</button>
+            <p id="time">0:00 </p>
+           <div id="back"> <div id="length"> </div></div>
+            <p id="end">0:00</p>
+            <div id="audio"> <input type="range" id="range" min="0" max="100"></div>
+        </div>
+    </div>
+    <audio src="please-come-again-made-with-Voicemod.mp3" id="close"></audio>
+    <script src="music.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
